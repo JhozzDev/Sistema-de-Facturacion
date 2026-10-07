@@ -1,0 +1,68 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+     <title>Sistema de Facturacion</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/Imagenes/Favicon.png" /> 
+      <link rel="stylesheet" href="../AppThemes/Principal/Principal.css"/>
+
+
+</head>
+
+<body>
+    <form id="form1" runat="server">
+ 
+            <div id="Cabecera" class="Cabecera">
+                <div id="contenidoCabecera">
+                    <div id="BarraHorizontal">
+                        <ul class="sidebar">
+                            <li><a href="/Login/Default.aspx"><img src="https://cdn-icons-png.flaticon.com/128/18880/18880754.png" />Inicio</a></li>
+                             <li><a href="../Mantenimiento/DefaultMantenimiento.aspx"><img src="https://cdn-icons-png.flaticon.com/128/561/561196.png"/> Mantenimiento</a></li>
+                        
+
+                        </ul>
+                    </div>
+                   
+                </div>  
+  <h1>Sistema de Facturacion Electronica</h1>
+
+
+                <div id="bajo" class="bajo">            
+                <div id="columIzq">
+                    <asp:ContentPlaceHolder ID="ContenidoMenuContextual" runat="server">
+
+
+                    </asp:ContentPlaceHolder>
+                </div>
+
+                    <div id="columnCentro" class="centro">
+                          <asp:ContentPlaceHolder ID="contenidoPrincipal" runat="server" >
+
+
+  </asp:ContentPlaceHolder>
+
+                        </div>
+
+                    <div id="columDer" class="columnaderecha">
+
+                    </div>
+
+                   
+
+
+                    </div> 
+                <div id="pie" class="pie">
+                    
+                     <span id="copy">
+                         Usuario:
+                         </span>
+                        <asp:Label CssClass="LblIdentificacion" ID="LblIdentificacion" runat="server" ForeColor="#000000" Text="Jhossan Hiciano" Font-Bold="true"></asp:Label>
+
+                    </div>
+                </div>
+ 
+    </form>
+</body>
+</html>

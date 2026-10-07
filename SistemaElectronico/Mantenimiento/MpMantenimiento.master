@@ -1,0 +1,18 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Login/Principal.Master"
+    AutoEventWireup="true" CodeBehind="MpMantenimiento.master.cs"
+    Inherits="SistemaElectronico.Mantenimiento.MpMantenimiento" %>
+
+<asp:Content ID="ContenidoMenu" ContentPlaceHolderID="ContenidoMenuContextual" runat="server" >
+    <ul id="menuContextual" class="contextual">
+        <li><a href="FormEmpresa.aspx">Crear Empresas</a></li>
+        <li><a href="FormCaja.aspx">Crear Cajas</a></li>
+        <li><a href="FormBodega.aspx">Crear Bodegas</a></li>
+        <li><a href="FormClientes.aspx">Crear Clientes</a></li>
+            </ul>
+</asp:Content>
+
+
+<asp:Content ID="ContenidoPrincipal" ContentPlaceHolderID="contenidoPrincipal" runat="server" class="mantenimientoPri">
+    <!-- Aquí va el contenido principal de mantenimiento -->
+    <asp:ContentPlaceHolder ID="contenidoPrincipalMantenimiento" runat="server"></asp:ContentPlaceHolder>
+</asp:Content>

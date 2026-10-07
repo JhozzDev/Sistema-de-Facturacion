@@ -1,0 +1,366 @@
+﻿/* =======================================================================
+   Sistema Electrónico de Facturación — tema visual
+   Paleta: navy #101828 / azul #2F6FED / gris frío #F4F6F9
+   ======================================================================= */
+
+:root {
+    --ink: #1B2333;
+    --ink-muted: #667085;
+    --bg: #F4F6F9;
+    --surface: #FFFFFF;
+    --border: #E4E7EC;
+    --navy: #101828;
+    --navy-soft: #1D2939;
+    --accent: #2F6FED;
+    --accent-dark: #2557C7;
+    --accent-soft: #EAF1FE;
+    --success: #16A34A;
+    --danger: #DC2626;
+    --radius-lg: 12px;
+    --radius-md: 8px;
+    --shadow: 0 1px 2px rgba(16,24,40,.06), 0 4px 12px rgba(16,24,40,.06);
+    --font: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    color: var(--ink);
+    background: var(--bg);
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ---------- estructura general ---------- */
+.Cabecera {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--bg);
+}
+
+.Cabecera h1 {
+    margin: 0;
+    padding: 18px 32px;
+    font-size: 19px;
+    font-weight: 600;
+    text-align: left;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+/* ---------- barra de navegación superior ---------- */
+#BarraHorizontal {
+    background: var(--navy);
+}
+
+.sidebar {
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    gap: 4px;
+    list-style: none;
+    font-family: var(--font);
+    font-size: 14px;
+}
+
+.sidebar li {
+    display: flex;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+.wellcome {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: -webkit-fill-available;
+}
+
+.sidebar li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 14px;
+    color: #CBD2E0;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: color .15s ease, border-color .15s ease, background-color .15s ease;
+}
+
+.sidebar li a:hover {
+    color: #FFFFFF;
+    background: rgba(255,255,255,.06);
+}
+
+.sidebar li:first-child a {
+    color: #FFFFFF;
+    border-bottom-color: var(--accent);
+}
+
+.sidebar img,
+a img {
+    width: 20px;
+    height: 20px;
+    /* los íconos vienen en negro sobre fondo transparente: los volvemos blancos
+       para que combinen con la barra oscura */
+    filter: brightness(0) invert(1);
+    opacity: .85;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ---------- cuerpo: menú contextual + contenido ---------- */
+.bajo {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    gap: 20px;
+    padding: 24px 32px;
+    justify-content: flex-start;
+}
+
+#columIzq {
+    width: 220px;
+    flex: 0 0 220px;
+}
+
+#columDer {
+    display: none; /* columna reservada sin uso todavía */
+}
+
+.contextual {
+    margin: 0;
+    display: flex;
+    background: var(--surface);
+    flex-direction: column;
+    gap: 2px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: var(--font);
+    border: 1px solid var(--border);
+    justify-content: flex-start;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    list-style: none;
+}
+
+.contextual li {
+    display: flex;
+    background: transparent;
+    padding: 0;
+}
+
+.contextual li a {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    color: var(--ink);
+    font-weight: 500;
+}
+
+.contextual li a:hover {
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+}
+
+/* ---------- tarjeta principal de contenido ---------- */
+.centro {
+    flex: 1;
+    min-width: 0;
+    border-radius: var(--radius-lg);
+    gap: 24px;
+    display: flex;
+    flex-direction: row-reverse;
+    background: var(--surface);
+    padding: 24px;
+    border: 1px solid var(--border);
+    justify-content: flex-start;
+    font-size: 15px;
+    box-shadow: var(--shadow);
+}
+
+.mantenimientoPri { width: 100%; }
+
+/* ---------- pie de página ---------- */
+.pie {
+    padding: 14px 32px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink-muted);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.LblIdentificacion { color: var(--ink) !important; }
+
+/* ---------- toolbar de acciones (Aceptar / Nuevo / Buscar…) ---------- */
+.btns {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4px;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.btns input[type="image"] {
+    width: auto;
+    height: 100px;
+    padding: 9px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, transform .05s ease;
+}
+
+.btns input[type="image"]:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+}
+
+.btns input[type="image"]:active { transform: scale(.94); }
+
+.btns button{ width: 100px; height: 100px; }
+
+/* ---------- contenedor del formulario + grid + mensaje ---------- */
+.aaas {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.bodega { display: flex; flex-direction: column; width: 100%; }
+
+/* Panel "Datos" -> filas etiqueta/campo */
+.btns2 {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 420px;
+}
+
+.btns2 span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-muted);
+    margin-top: 10px;
+}
+
+.btns2 input[type="text"] {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-family: var(--font);
+    color: var(--ink);
+    background: var(--surface);
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.btns2 input[type="text"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.btns2 input[type="file"] {
+    margin-top: 6px;
+    font-size: 13px;
+}
+
+.btns2 img#ImgPreview {
+    margin-top: 10px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    object-fit: cover;
+}
+
+.aaas > h3 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+/* ---------- banner de mensaje (reutiliza BarraAzul/Roja/Verde) ---------- */
+.msg {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    color: var(--ink);
+}
+
+.msg img {
+    width: 6px;
+    height: 22px;
+    border-radius: 3px;
+}
+
+/* ---------- tabla de resultados (GridView) ---------- */
+.view {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.view table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+}
+
+.view table, .view table tr, .view table td, .view table th {
+    border: none !important;
+}
+
+.view table th {
+    text-align: left;
+    padding: 10px 12px;
+    color: var(--ink-muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--border) !important;
+    background: var(--bg);
+}
+
+.view table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border) !important;
+}
+
+.view table tr:hover td { background: var(--accent-soft); }
+
+.view input[type="image"] {
+    width: 18px;
+    height: 18px;
+}
+
+.titulo {
+    text-align: left;
+    background: var(--surface);
+    padding: 10px;
+}
