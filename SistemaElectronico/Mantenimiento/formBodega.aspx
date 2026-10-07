@@ -4,12 +4,11 @@
 
 
 <asp:Panel ID="PnlBotonera" runat="server" CssClass="btns">
-    <asp:ImageButton ID="ImgAceptar" ImageUrl="~/Imagenes/Aceptar.png" runat="server"  OnClick="ImgAceptar_Click" />
-    <asp:ImageButton ID="ImgNuevo" ImageUrl="~/Imagenes/Nuevo.png" runat="server" OnClick="ImgNuevo_Click"/>
-    <asp:ImageButton ID="ImgCancelar" ImageUrl="~/Imagenes/Cancelar.png" runat="server" OnClick="ImgCancelar_Click"/>
-    <asp:ImageButton ID="ImgBuscar" ImageUrl="~/Imagenes/Buscar.png" runat="server" OnClick="ImgBuscar_Click"/>
-    <asp:ImageButton ID="ImgModificar" ImageUrl="~/Imagenes/Modificar.png" runat="server" OnClick="ImgModificar_Click"/>
-    <asp:ImageButton ID="ImgImprimir" ImageUrl="~/Imagenes/Printer.png" runat="server"/>
+     <asp:Button ID="ImgNuevo" runat="server" OnClick="ImgNuevo_Click" Text="Nuevo"/>
+    <asp:Button ID="ImgAceptar" runat="server" OnClick="ImgAceptar_Click" Text="Aceptar"/>
+    <asp:Button ID="ImgCancelar" runat="server" OnClick="ImgCancelar_Click" Text="Cancelar"/>
+    <asp:Button ID="ImgBuscar" runat="server" OnClick="ImgBuscar_Click" Text="Buscar"/>
+    <asp:Button ID="ImgModificar" runat="server" OnClick="ImgModificar_Click" Text="Modificar"/>
 </asp:Panel>
 
 <asp:Panel runat="server" class="aaas">

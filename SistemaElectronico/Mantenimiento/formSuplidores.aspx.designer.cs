@@ -24,22 +24,22 @@ namespace SistemaElectronico.Mantenimiento
         protected global::System.Web.UI.WebControls.Panel PnlBotonera;
 
         /// <summary>
-        /// Control ImgAceptar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImgAceptar;
-
-        /// <summary>
         /// Control ImgNuevo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImgNuevo;
+        protected global::System.Web.UI.WebControls.Button ImgNuevo;
+
+        /// <summary>
+        /// Control ImgAceptar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ImgAceptar;
 
         /// <summary>
         /// Control ImgCancelar.
@@ -48,7 +48,7 @@ namespace SistemaElectronico.Mantenimiento
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImgCancelar;
+        protected global::System.Web.UI.WebControls.Button ImgCancelar;
 
         /// <summary>
         /// Control ImgBuscar.
@@ -57,7 +57,7 @@ namespace SistemaElectronico.Mantenimiento
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImgBuscar;
+        protected global::System.Web.UI.WebControls.Button ImgBuscar;
 
         /// <summary>
         /// Control ImgModificar.
@@ -66,16 +66,7 @@ namespace SistemaElectronico.Mantenimiento
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImgModificar;
-
-        /// <summary>
-        /// Control ImgImprimir.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImgImprimir;
+        protected global::System.Web.UI.WebControls.Button ImgModificar;
 
         /// <summary>
         /// Control PnlMensaje.
