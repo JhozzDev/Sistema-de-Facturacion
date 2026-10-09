@@ -29,7 +29,7 @@
    </asp:Panel>
     
      <asp:Panel ID="PnlGridView" runat="server" class="view">
-        <asp:GridView ID="GridView1" scrollbar="auto" ToolTip="Buscar registro" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" scrollbar="auto" ToolTip="Buscar registro" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"  CssClass="GridView1">
 
       
         <Columns>
