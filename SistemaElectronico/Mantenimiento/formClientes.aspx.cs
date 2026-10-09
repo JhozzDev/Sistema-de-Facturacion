@@ -33,7 +33,7 @@ namespace SistemaElectronico.Mantenimiento
 
             SqlCon = ConexionDB.getInstancia().CrearConexion();
             SqlCon.Open();
-            SqlCommand cmd = new SqlCommand("sp_ContarRegistro_Clientes", SqlCon);
+            SqlCommand cmd = new SqlCommand("sp_ContarRegistro_Cliente", SqlCon);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             int maxId = Convert.ToInt32(cmd.ExecuteScalar());
             TxtCodigo.Text = maxId.ToString();
@@ -106,10 +106,9 @@ namespace SistemaElectronico.Mantenimiento
                     SqlCon.Open();
 
                     // 2️⃣ Verificar si el registro ya existe
-                    using (SqlCommand cmd = new SqlCommand("sp_RegistroExiste_Clientes", SqlCon))
+                    using (SqlCommand cmd = new SqlCommand("sp_RegistroExiste_Cliente", SqlCon))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@cli_nombre", TxtNombre.Text);
                         cmd.Parameters.AddWithValue("@cli_rnc", TxtRnc.Text);
 
                         using (SqlDataReader rd = cmd.ExecuteReader())
@@ -126,7 +125,7 @@ namespace SistemaElectronico.Mantenimiento
                     }
 
                     // 3️⃣ Si no existe, insertar el registro
-                    using (SqlCommand cmdInsert = new SqlCommand("sp_Insert_Clientes", SqlCon))
+                    using (SqlCommand cmdInsert = new SqlCommand("sp_Insert_Cliente", SqlCon))
                     {
                         cmdInsert.CommandType = CommandType.StoredProcedure;
 
@@ -138,8 +137,6 @@ namespace SistemaElectronico.Mantenimiento
                         cmdInsert.Parameters.AddWithValue("@cli_contacto", TxtContacto.Text);
                         cmdInsert.Parameters.AddWithValue("@cli_cargo", TxtCargo.Text);
                         cmdInsert.Parameters.AddWithValue("@cli_pagina", TxtPagina.Text);
-                        cmdInsert.Parameters.AddWithValue("@cli_apellido", TxtApellido.Text);
-                        cmdInsert.Parameters.AddWithValue("@cli_cedula", TxtCedula.Text);
                         cmdInsert.Parameters.AddWithValue("@cli_direccion", TxtDireccion.Text);
                         cmdInsert.Parameters.AddWithValue("@cli_telefono", TxtTelefono.Text);
                         cmdInsert.Parameters.AddWithValue("@cli_celular", TxtCelular.Text);
@@ -207,7 +204,7 @@ namespace SistemaElectronico.Mantenimiento
             SqlCon = ConexionDB.getInstancia().CrearConexion();
             DataTable dt = new DataTable();
             SqlCon.Open();
-            SqlCommand cmd = new SqlCommand("sp_Consulta_GridClientes", SqlCon);
+            SqlCommand cmd = new SqlCommand("sp_Consulta_GridCliente", SqlCon);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(dt);
@@ -266,9 +263,8 @@ namespace SistemaElectronico.Mantenimiento
             {
                 SqlCon = ConexionDB.getInstancia().CrearConexion();
                 SqlCon.Open();
-                SqlCommand cmd = new SqlCommand("sp_RegistroExiste_Clientes", SqlCon);
+                SqlCommand cmd = new SqlCommand("sp_RegistroExiste_Cliente", SqlCon);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@cli_nombre", TxtNombre.Text);
                 cmd.Parameters.AddWithValue("@cli_rnc", TxtRnc.Text);
                 cmd.Connection = SqlCon;
                 SqlDataReader rd = cmd.ExecuteReader();
@@ -286,7 +282,7 @@ namespace SistemaElectronico.Mantenimiento
                 else
                 {
                     rd.Close();
-                    SqlCommand cmd1 = new SqlCommand("sp_Update_Clientes", SqlCon);
+                    SqlCommand cmd1 = new SqlCommand("sp_Update_Cliente", SqlCon);
                     cmd1.CommandType = CommandType.StoredProcedure;
 
                     cmd1.Parameters.AddWithValue("@cli_codigo", TxtCodigo.Text);

@@ -11,30 +11,7 @@
 </asp:Panel>
 
 <asp:Panel runat="server" class="aaas">
-    <asp:Panel ID="PnlGridView" runat="server" CssClass="view">
-        <asp:GridView ID="GridView1" scrollbar="auto" ToolTip="Buscar registro" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="GridView1">
-
-      
-        <Columns>
-        <asp:CommandField ButtonType="Image" ShowSelectButton="true" SelectImageUrl="~/Imagenes/Seleccion.png" />
-        <asp:BoundField DataField="cli_codigo" HeaderText="Codigo" />
-        <asp:BoundField DataField="cli_tipo" HeaderText="Tipo" />
-        <asp:BoundField DataField="cli_nombre" HeaderText="Nombre" />
-        <asp:BoundField DataField="cli_rnc" HeaderText="Rnc" />
-        <asp:BoundField DataField="cli_contacto" HeaderText="Contacto" />
-        <asp:BoundField DataField="cli_cargo" HeaderText="Cargo" />
-        <asp:BoundField DataField="cli_pagina" HeaderText="Pagina" />
-        <asp:BoundField DataField="cli_apellido" HeaderText="Apellido" />
-        <asp:BoundField DataField="cli_cedula" HeaderText="Cedula" />
-        <asp:BoundField DataField="cli_direccion" HeaderText="Direccion" />
-        <asp:BoundField DataField="cli_telefono" HeaderText="Telefono" />
-        <asp:BoundField DataField="cli_celular" HeaderText="Celular" />
-        <asp:BoundField DataField="cli_correo" HeaderText="Correo" />
-        <asp:BoundField DataField="cli_pais" HeaderText="Pais" />
-        <asp:BoundField DataField="cli_provincia" HeaderText="Provincia" />
-        </Columns>    
-        </asp:GridView>
-    </asp:Panel>
+   
     <asp:Panel ID="PnlMensaje" runat="server" CssClass="msg">
         <asp:Image ID="ImgBarras" runat="server" ImageUrl="~/Imagenes/BarraAzul.png"></asp:Image>
         <asp:Label ID="LblMensaje" runat="server" Text="Mensaje: "></asp:Label>
@@ -82,7 +59,30 @@
     
 
     <asp:Panel ID="PnlCuadroGridView" runat="server" ToolTip="Buscar registros" >
-  
+   <asp:Panel ID="PnlGridView" runat="server" CssClass="view">
+        <asp:GridView ID="GridView1" scrollbar="auto" ToolTip="Buscar registro" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="GridView1">
+
+      
+        <Columns>
+        <asp:CommandField ButtonType="Image" ShowSelectButton="true" SelectImageUrl="~/Imagenes/Seleccion.png" />
+        <asp:BoundField DataField="cli_codigo" HeaderText="Codigo" />
+        <asp:BoundField DataField="cli_tipo" HeaderText="Tipo" />
+        <asp:BoundField DataField="cli_nombre" HeaderText="Nombre" />
+        <asp:BoundField DataField="cli_rnc" HeaderText="Rnc" />
+        <asp:BoundField DataField="cli_contacto" HeaderText="Contacto" />
+        <asp:BoundField DataField="cli_cargo" HeaderText="Cargo" />
+        <asp:BoundField DataField="cli_pagina" HeaderText="Pagina" />
+        <asp:BoundField DataField="cli_apellido" HeaderText="Apellido" />
+        <asp:BoundField DataField="cli_cedula" HeaderText="Cedula" />
+        <asp:BoundField DataField="cli_direccion" HeaderText="Direccion" />
+        <asp:BoundField DataField="cli_telefono" HeaderText="Telefono" />
+        <asp:BoundField DataField="cli_celular" HeaderText="Celular" />
+        <asp:BoundField DataField="cli_correo" HeaderText="Correo" />
+        <asp:BoundField DataField="cli_pais" HeaderText="Pais" />
+        <asp:BoundField DataField="cli_provincia" HeaderText="Provincia" />
+        </Columns>    
+        </asp:GridView>
+    </asp:Panel>
     </asp:Panel>
 
     <asp:ScriptManager ID="ScriptManager1" runat="server">    
