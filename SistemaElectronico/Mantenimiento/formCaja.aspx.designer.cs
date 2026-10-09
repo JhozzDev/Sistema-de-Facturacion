@@ -24,15 +24,6 @@ namespace SistemaElectronico.Mantenimiento
         protected global::System.Web.UI.WebControls.Panel PnlBotonera;
 
         /// <summary>
-        /// Control ImgNuevo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ImgNuevo;
-
-        /// <summary>
         /// Control ImgAceptar.
         /// </summary>
         /// <remarks>
@@ -40,15 +31,6 @@ namespace SistemaElectronico.Mantenimiento
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ImgAceptar;
-
-        /// <summary>
-        /// Control ImgCancelar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ImgCancelar;
 
         /// <summary>
         /// Control ImgBuscar.

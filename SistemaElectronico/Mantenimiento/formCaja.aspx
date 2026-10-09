@@ -3,9 +3,7 @@
 <asp:Content ContentPlaceHolderID="contenidoPrincipalMantenimiento" runat="server" class="caja">
 
 <asp:Panel ID="PnlBotonera" runat="server" CssClass="btns">
-     <asp:Button ID="ImgNuevo" runat="server" OnClick="ImgNuevo_Click" Text="Nuevo"/>
     <asp:Button ID="ImgAceptar" runat="server" OnClick="ImgAceptar_Click" Text="Aceptar"/>
-    <asp:Button ID="ImgCancelar" runat="server" OnClick="ImgCancelar_Click" Text="Cancelar"/>
     <asp:Button ID="ImgBuscar" runat="server" OnClick="ImgBuscar_Click" Text="Buscar"/>
     <asp:Button ID="ImgModificar" runat="server" OnClick="ImgModificar_Click" Text="Modificar"/>
 </asp:Panel>
