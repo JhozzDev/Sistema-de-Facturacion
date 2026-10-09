@@ -3,6 +3,12 @@
 <asp:Content ContentPlaceHolderID="contenidoPrincipalMantenimiento" runat="server" class="bodega">
 
 
+
+
+<asp:Panel runat="server" class="aaas">
+    
+    
+    <h3>Crear bodega</h3>
 <asp:Panel ID="PnlBotonera" runat="server" CssClass="btns">
      <asp:Button ID="ImgNuevo" runat="server" OnClick="ImgNuevo_Click" Text="Nuevo"/>
     <asp:Button ID="ImgAceptar" runat="server" OnClick="ImgAceptar_Click" Text="Aceptar"/>
@@ -10,9 +16,19 @@
     <asp:Button ID="ImgBuscar" runat="server" OnClick="ImgBuscar_Click" Text="Buscar"/>
     <asp:Button ID="ImgModificar" runat="server" OnClick="ImgModificar_Click" Text="Modificar"/>
 </asp:Panel>
-
-<asp:Panel runat="server" class="aaas">
-    <asp:Panel ID="PnlGridView" runat="server" class="view">
+<asp:Panel ID="PnlDatos" runat="server" class="btns2">
+        
+       
+        <asp:Label ID="LblReferencia" runat="server" Text="Referencia: "></asp:Label>
+        <asp:TextBox ID="TxtReferencia" runat="server" ></asp:TextBox> 
+    <asp:Label ID="LblCodigo" runat="server" Text="Codigo: "></asp:Label>
+        <asp:TextBox ID="TxtCodigo" runat="server"></asp:TextBox>
+        <asp:Label ID="LblDescripcion" runat="server" Text="Descripcion:"></asp:Label>
+        <asp:TextBox ID="TxtDescripcion" runat="server"></asp:TextBox>
+</asp:Panel>
+   </asp:Panel>
+    
+     <asp:Panel ID="PnlGridView" runat="server" class="view">
         <asp:GridView ID="GridView1" scrollbar="auto" ToolTip="Buscar registro" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
 
       
@@ -24,24 +40,11 @@
         </Columns>    
         </asp:GridView>
     </asp:Panel>
+   
     <asp:Panel ID="PnlMensaje" runat="server" class="msg">
         <asp:Image ID="ImgBarras" runat="server" ImageUrl="~/Imagenes/BarraAzul.png"></asp:Image>
         <asp:Label ID="LblMensaje" runat="server" Text="Mensaje: "></asp:Label>
     </asp:Panel>
-
-<asp:Panel ID="PnlDatos" runat="server" class="btns2">
-        
-       
-        <asp:Label ID="LblReferencia" runat="server" Text="Referencia: "></asp:Label>
-        <asp:TextBox ID="TxtReferencia" runat="server" ></asp:TextBox> 
-    <asp:Label ID="LblCodigo" runat="server" Text="Codigo: "></asp:Label>
-        <asp:TextBox ID="TxtCodigo" runat="server"></asp:TextBox>
-        <asp:Label ID="LblDescripcion" runat="server" Text="Descripcion:"></asp:Label>
-        <asp:TextBox ID="TxtDescripcion" runat="server"></asp:TextBox>
-</asp:Panel><h3>Crear bodega</h3>
-   </asp:Panel>
-    
-    
 
     <asp:Panel ID="PnlCuadroGridView" runat="server" ToolTip="Buscar registros" >
   

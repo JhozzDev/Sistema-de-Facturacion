@@ -2,6 +2,14 @@
 
 <asp:Content ContentPlaceHolderID="contenidoPrincipalMantenimiento" runat="server" class="bodega">
 
+
+
+<asp:Panel runat="server" CssClass="aaas">
+<h3>Crear Empresa</h3>
+
+
+
+
 <asp:Panel ID="PnlBotonera" runat="server" CssClass="btns">
      <asp:Button ID="ImgNuevo" runat="server" OnClick="ImgNuevo_Click" Text="Nuevo"/>
     <asp:Button ID="ImgAceptar" runat="server" OnClick="ImgAceptar_Click" Text="Aceptar"/>
@@ -9,14 +17,6 @@
     <asp:Button ID="ImgBuscar" runat="server" OnClick="ImgBuscar_Click" Text="Buscar"/>
     <asp:Button ID="ImgModificar" runat="server" OnClick="ImgModificar_Click" Text="Modificar"/>
 </asp:Panel>
-
-<asp:Panel runat="server" class="aaas">
-  
-    <asp:Panel ID="PnlMensaje" runat="server" class="msg">
-        <asp:Image ID="ImgBarras" runat="server" ImageUrl="~/Imagenes/BarraAzul.png"></asp:Image>
-        <asp:Label ID="LblMensaje" runat="server" Text="Mensaje: "></asp:Label> 
-    </asp:Panel>
-
 <asp:Panel ID="PnlDatos" runat="server" class="btns2">
         
        
@@ -30,9 +30,16 @@
 
   <asp:FileUpload runat="server" ID="fileUpload"></asp:FileUpload>    
   <asp:Image ImageUrl=" " ID="ImgPreview" runat="server" Height="300" Width="300"/>
-</asp:Panel><h3>Crear Empresa</h3>
-   </asp:Panel>
+</asp:Panel>
     
+    <asp:Panel runat="server" class="aaas">
+  
+    <asp:Panel ID="PnlMensaje" runat="server" class="msg">
+        <asp:Image ID="ImgBarras" runat="server" ImageUrl="~/Imagenes/BarraAzul.png"></asp:Image>
+        <asp:Label ID="LblMensaje" runat="server" Text="Mensaje: "></asp:Label> 
+    </asp:Panel>
+   </asp:Panel>
+    </asp:Panel>
 
 
     
