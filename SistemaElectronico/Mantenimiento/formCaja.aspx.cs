@@ -48,9 +48,9 @@ namespace SistemaElectronico.Mantenimiento
             ContarRegistro(sender, e);
             TxtReferencia.Focus();
             ImgAceptar.Enabled = true;
-            ImgCancelar.Enabled = true;
+         
             ImgBuscar.Enabled = true;
-            ImgNuevo.Enabled = true;
+           
             ImgModificar.Enabled = true;
 
             TxtDescripcion.Enabled = true;

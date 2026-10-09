@@ -11,8 +11,8 @@
 </asp:Panel>
 
 <asp:Panel runat="server" class="aaas">
-    <asp:Panel ID="PnlGridView" runat="server" class="view">
-        <asp:GridView ID="GridView1" scrollbar="auto" ToolTip="Buscar registro" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="GridView1_SelectedIndexChanged">
+    <asp:Panel ID="PnlGridView" runat="server" CssClass="view">
+        <asp:GridView ID="GridView1" scrollbar="auto" ToolTip="Buscar registro" runat="server" AutoGenerateColumns="false" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" CssClass="GridView1">
 
       
         <Columns>
@@ -35,12 +35,12 @@
         </Columns>    
         </asp:GridView>
     </asp:Panel>
-    <asp:Panel ID="PnlMensaje" runat="server" class="msg">
+    <asp:Panel ID="PnlMensaje" runat="server" CssClass="msg">
         <asp:Image ID="ImgBarras" runat="server" ImageUrl="~/Imagenes/BarraAzul.png"></asp:Image>
         <asp:Label ID="LblMensaje" runat="server" Text="Mensaje: "></asp:Label>
     </asp:Panel>
 
-<asp:Panel ID="PnlDatos" runat="server" class="btns2">
+<asp:Panel ID="PnlDatos" runat="server" CssClass="btns2">
         
         
         <asp:Label ID="LblCodigo" runat="server" Text="Codigo: "></asp:Label>

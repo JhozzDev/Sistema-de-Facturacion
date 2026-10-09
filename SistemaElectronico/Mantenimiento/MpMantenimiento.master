@@ -3,6 +3,9 @@
     Inherits="SistemaElectronico.Mantenimiento.MpMantenimiento" %>
 
 <asp:Content ID="ContenidoMenu" ContentPlaceHolderID="ContenidoMenuContextual" runat="server" >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
     <ul id="menuContextual" class="contextual">
         <li><a href="FormEmpresa.aspx">Crear Empresas</a></li>
         <li><a href="FormCaja.aspx">Crear Cajas</a></li>

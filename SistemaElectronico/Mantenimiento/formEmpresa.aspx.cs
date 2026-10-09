@@ -21,7 +21,7 @@ namespace SistemaElectronico.Mantenimiento
 
 
         }
-        protected void imgAceptar_Click(object sender, EventArgs e){
+        protected void ImgAceptar_Click(object sender, EventArgs e){
             SqlCon = ConexionDB.getInstancia().CrearConexion();
             SqlCon.Open();
             SqlCommand cmd = new SqlCommand("sp_ContarRegistro_Emoresa", SqlCon);
@@ -90,12 +90,27 @@ namespace SistemaElectronico.Mantenimiento
             ImgBarras.ImageUrl = "/Imagenes/BarraAzul.png";
 
         }
+
+
+        protected void ImgBuscar_Click(object sender, EventArgs e)
+        {
+            Reiniciar(sender, e);
+        }
         protected void ImgCancelar_Click(object sender, EventArgs e)
         {
 
             Reiniciar(sender, e);
 
         }
+
+        protected void ImgModificar_Click(object sender, EventArgs e) {    Reiniciar(sender, e);
+        }
+
+        protected void ImgNuevo_Click(object sender, EventArgs e)
+        {
+            Reiniciar(sender, e);
+        }
+
 
 
     }
