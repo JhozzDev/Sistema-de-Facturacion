@@ -136,6 +136,7 @@ body {
 
 .centro {
     flex: 1;
+    min-width: 0; /* permite encoger: evita que el grid ancho desborde la pagina */
     padding: 1.5rem;
     background-color: var(--bg-color);
 }
@@ -166,6 +167,15 @@ body {
     border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
+
+    /* La botonera solo ocupa lo que necesitan los botones.
+       Si sobrepasan el ancho disponible se reparten en varias filas
+       y si son demasiados se limita el alto con scroll, sin invadir la pantalla. */
+    width: fit-content;
+    max-width: 100%;
+    max-height: 40vh;
+    overflow-y: auto;
+    align-content: flex-start;
 }
 
 .btns button,
@@ -207,6 +217,7 @@ body {
     flex-direction: column;
     align-items:center;
     gap: 1.25rem;
+    color:black;
     margin-bottom: 1.5rem;
 }
 
@@ -222,6 +233,7 @@ body {
     gap: 1rem 1rem;
     align-items: center;
     max-width: 900px;
+    color: black;
 }
 
 .btns2 span {
@@ -271,9 +283,8 @@ body {
 }
 
 #ImgPreview {
-    grid-column: 2 / -1;
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 160px;
+    max-height: 160px;
     border: 1px solid var(--border-color);
     border-radius: var(--radius);
     margin-top: 0.5rem;
@@ -289,6 +300,82 @@ h3 {
     border-bottom: 2px solid var(--border-color);
 }
 
+/* =========================================================
+   Formulario compacto en varias columnas
+   ========================================================= */
+.pagina-mantenimiento {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.form-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-card h3 {
+    margin-top: 0;
+}
+
+.campos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.875rem 1.25rem;
+    align-items: end;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 0;
+}
+
+.campo > span,
+.campo label {
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+.campo input[type="text"],
+.campo input[type="email"],
+.campo input[type="tel"],
+.campo input[type="password"],
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-family: var(--font-family);
+    font-size: 0.875rem;
+    color: var(--text-color);
+    background-color: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    outline: none;
+    border-color: var(--info-color);
+    box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.campo input[type="file"] {
+    font-size: 0.875rem;
+}
+
+.campo-full {
+    grid-column: 1 / -1;
+}
+
 /* GridView */
 .view {
     background-color: var(--surface-color);
@@ -296,12 +383,17 @@ h3 {
     border-radius: var(--radius-lg);
     padding: 1rem;
     box-shadow: var(--shadow-sm);
-    overflow-x: auto;
+
+    /* El GridView nunca desborda la pantalla: se desplaza dentro de su panel. */
+    max-width: 100%;
+    max-height: 65vh;
+    overflow: auto;
     color:black;
 }
 
 .GridView1 {
     width: 100%;
+    min-width: max-content; /* no comprime las columnas; el panel hace scroll */
     border-collapse: collapse;
     font-size: 0.875rem;
     color:black;
@@ -317,12 +409,14 @@ h3 {
     font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    white-space: nowrap;
 }
 
 .GridView1 td {
     padding: 0.625rem 0.75rem;
     border: 1px solid var(--border-color);
     color: var(--text-color);
+    white-space: nowrap;
 }
 
 .GridView1 tr:nth-child(even) {

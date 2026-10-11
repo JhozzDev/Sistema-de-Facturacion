@@ -6,15 +6,11 @@
 
         <h3>Filtro de registros</h3>
 
-        <asp:Panel ID="PnlBotonera" runat="server" CssClass="btns">
-            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="Filtrar" />
-        </asp:Panel>
-
         <asp:Panel ID="PnlDatos" runat="server" class="btns2">
 
             <asp:Label ID="LblTabla" runat="server" Text="Tabla" AssociatedControlID="ddlProductos"></asp:Label>
             <asp:DropDownList ID="ddlProductos" runat="server" CssClass="form-select">
-                <asp:ListItem Value="">Selecciona un producto</asp:ListItem>
+                <asp:ListItem Value="">Selecciona una categoria</asp:ListItem>
                 <asp:ListItem Value="Bodega">Bodega</asp:ListItem>
                 <asp:ListItem Value="Producto">Productos</asp:ListItem>
                 <asp:ListItem Value="Cliente">Clientes</asp:ListItem>
@@ -24,6 +20,8 @@
             <asp:Label ID="LblFiltro" runat="server" Text="Código" AssociatedControlID="txtFiltro"></asp:Label>
             <asp:TextBox ID="txtFiltro" runat="server"></asp:TextBox>
 
+        </asp:Panel> <asp:Panel ID="PnlBotonera" runat="server" CssClass="btns">
+            <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="Filtrar" />
         </asp:Panel>
 
     </asp:Panel>
