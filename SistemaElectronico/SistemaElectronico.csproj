@@ -69,6 +69,8 @@
   <ItemGroup>
     <Content Include="AppThemes\LoginForm\FormLoginCss.css" />
     <Content Include="AppThemes\Principal\Principal.css" />
+    <Content Include="Consultas\formFiltro.aspx" />
+    <Content Include="Consultas\MpConsultas.master" />
     <Content Include="Imagenes\Aceptar.png" />
     <Content Include="Imagenes\BarraAzul.png" />
     <Content Include="Imagenes\BarraRoja.png" />
@@ -97,11 +99,24 @@
     <Content Include="Mantenimiento\formClientes.aspx" />
     <Content Include="Mantenimiento\formEmpresa.aspx" />
     <Content Include="Mantenimiento\formProductos.aspx" />
-    <Content Include="Mantenimiento\formSuplidores.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\ConexionDB.cs" />
+    <Compile Include="Consultas\formFiltro.aspx.cs">
+      <DependentUpon>formFiltro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\formFiltro.aspx.designer.cs">
+      <DependentUpon>formFiltro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Consultas\MpConsultas.master.cs">
+      <DependentUpon>MpConsultas.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Consultas\MpConsultas.master.designer.cs">
+      <DependentUpon>MpConsultas.master</DependentUpon>
+    </Compile>
     <Compile Include="Login\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,13 +179,6 @@
     </Compile>
     <Compile Include="Mantenimiento\formProductos.aspx.designer.cs">
       <DependentUpon>formProductos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Mantenimiento\formSuplidores.aspx.cs">
-      <DependentUpon>formSuplidores.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Mantenimiento\formSuplidores.aspx.designer.cs">
-      <DependentUpon>formSuplidores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Mantenimiento\MpMantenimiento.master.cs">
       <DependentUpon>MpMantenimiento.master</DependentUpon>
