@@ -137,6 +137,8 @@ namespace SistemaElectronico.Mantenimiento
                         cmdInsert.Parameters.AddWithValue("@cli_contacto", TxtContacto.Text);
                         cmdInsert.Parameters.AddWithValue("@cli_cargo", TxtCargo.Text);
                         cmdInsert.Parameters.AddWithValue("@cli_pagina", TxtPagina.Text);
+                        cmdInsert.Parameters.AddWithValue("@cli_apellido", TxtApellido.Text);
+                        cmdInsert.Parameters.AddWithValue("@cli_cedula", TxtCedula.Text);
                         cmdInsert.Parameters.AddWithValue("@cli_direccion", TxtDireccion.Text);
                         cmdInsert.Parameters.AddWithValue("@cli_telefono", TxtTelefono.Text);
                         cmdInsert.Parameters.AddWithValue("@cli_celular", TxtCelular.Text);
@@ -257,59 +259,69 @@ namespace SistemaElectronico.Mantenimiento
         {
             if (string.IsNullOrWhiteSpace(TxtNombre.Text) || string.IsNullOrWhiteSpace(TxtApellido.Text))
             {
-
+                ImgBarras.ImageUrl = "/Imagenes/BarraRoja.png";
+                LblMensaje.Text = "Debe completar nombre y apellido.";
+                Timer1.Enabled = true;
+                return;
             }
-            else
+
+            try
             {
-                SqlCon = ConexionDB.getInstancia().CrearConexion();
-                SqlCon.Open();
-                SqlCommand cmd = new SqlCommand("sp_RegistroExiste_Cliente", SqlCon);
-                cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@cli_rnc", TxtRnc.Text);
-                cmd.Connection = SqlCon;
-                SqlDataReader rd = cmd.ExecuteReader();
-
-
-
-                if (rd.HasRows)
+                using (SqlConnection cn = ConexionDB.getInstancia().CrearConexion())
                 {
+                    cn.Open();
 
-                    ImgBarras.ImageUrl = "/Imagenes/BarraRoja.png";
-                    Timer1.Enabled = false;
-                    LblMensaje.Text = "Registro Existe";
+                    // El SP excluye el codigo actual: editar un cliente con su propio RNC
+                    // ya no se considera un duplicado.
+                    using (SqlCommand existe = new SqlCommand("sp_RegistroExiste_Cliente_Update", cn))
+                    {
+                        existe.CommandType = CommandType.StoredProcedure;
+                        existe.Parameters.AddWithValue("@cli_codigo", Convert.ToInt32(TxtCodigo.Text));
+                        existe.Parameters.AddWithValue("@cli_rnc", TxtRnc.Text);
 
+                        int duplicado = Convert.ToInt32(existe.ExecuteScalar());
+                        if (duplicado == 1)
+                        {
+                            ImgBarras.ImageUrl = "/Imagenes/BarraRoja.png";
+                            LblMensaje.Text = "Ya existe otro cliente con ese RNC.";
+                            Timer1.Enabled = true;
+                            return;
+                        }
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand("sp_Update_Cliente", cn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@cli_codigo", Convert.ToInt32(TxtCodigo.Text));
+                        cmd.Parameters.AddWithValue("@cli_tipo", TxtTipo.Text);
+                        cmd.Parameters.AddWithValue("@cli_nombre", TxtNombre.Text);
+                        cmd.Parameters.AddWithValue("@cli_rnc", TxtRnc.Text);
+                        cmd.Parameters.AddWithValue("@cli_contacto", TxtContacto.Text);
+                        cmd.Parameters.AddWithValue("@cli_cargo", TxtCargo.Text);
+                        cmd.Parameters.AddWithValue("@cli_pagina", TxtPagina.Text);
+                        cmd.Parameters.AddWithValue("@cli_apellido", TxtApellido.Text);
+                        cmd.Parameters.AddWithValue("@cli_cedula", TxtCedula.Text);
+                        cmd.Parameters.AddWithValue("@cli_direccion", TxtDireccion.Text);
+                        cmd.Parameters.AddWithValue("@cli_telefono", TxtTelefono.Text);
+                        cmd.Parameters.AddWithValue("@cli_celular", TxtCelular.Text);
+                        cmd.Parameters.AddWithValue("@cli_correo", TxtCorreo.Text);
+                        cmd.Parameters.AddWithValue("@cli_pais", TxtPais.Text);
+                        cmd.Parameters.AddWithValue("@cli_provincia", TxtProvincia.Text);
+
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-                else
-                {
-                    rd.Close();
-                    SqlCommand cmd1 = new SqlCommand("sp_Update_Cliente", SqlCon);
-                    cmd1.CommandType = CommandType.StoredProcedure;
 
-                    cmd1.Parameters.AddWithValue("@cli_codigo", TxtCodigo.Text);
-                    cmd1.Parameters.AddWithValue("@cli_tipo", TxtTipo.Text);
-                    cmd1.Parameters.AddWithValue("@cli_nombre", TxtNombre.Text);
-                    cmd1.Parameters.AddWithValue("@cli_rnc", TxtRnc.Text);
-                    cmd1.Parameters.AddWithValue("@cli_contacto", TxtContacto.Text);
-                    cmd1.Parameters.AddWithValue("@cli_cargo", TxtCargo.Text);
-                    cmd1.Parameters.AddWithValue("@cli_pagina", TxtPagina.Text);
-                    cmd1.Parameters.AddWithValue("@cli_apellido", TxtApellido.Text);
-                    cmd1.Parameters.AddWithValue("@cli_cedula", TxtCedula.Text);
-                    cmd1.Parameters.AddWithValue("@cli_direccion", TxtDireccion.Text);
-                    cmd1.Parameters.AddWithValue("@cli_telefono", TxtTelefono.Text);
-                    cmd1.Parameters.AddWithValue("@cli_celular", TxtCelular.Text);
-                    cmd1.Parameters.AddWithValue("@cli_correo", TxtCorreo.Text);
-                    cmd1.Parameters.AddWithValue("@cli_pais", TxtPais.Text);
-                    cmd1.Parameters.AddWithValue("@cli_provincia", TxtProvincia.Text);
-                    cmd1.ExecuteNonQuery();
-                    SqlCon.Close();
-
-                    ImgBarras.ImageUrl = "/Imagenes/BarraVerde.png";
-                    Timer1.Enabled = false;
-                    ImgModificar.Enabled = true;
-
-
-
-                }
+                ImgBarras.ImageUrl = "/Imagenes/BarraVerde.png";
+                LblMensaje.Text = "Registro modificado correctamente.";
+                Timer1.Enabled = true;
+                ImgBuscar_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                ImgBarras.ImageUrl = "/Imagenes/BarraRoja.png";
+                LblMensaje.Text = "Error al modificar: " + ex.Message;
+                Timer1.Enabled = true;
             }
         }
 

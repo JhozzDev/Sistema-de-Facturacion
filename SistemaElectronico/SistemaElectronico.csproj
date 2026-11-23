@@ -192,6 +192,9 @@
   <ItemGroup>
     <Content Include="Mantenimiento\MpMantenimiento.master" />
     <Content Include="Login\Principal.Master" />
+    <None Include="Database\Cliente_SP.sql" />
+    <None Include="Database\Producto_SP.sql" />
+    <None Include="docs\captures\*.png" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
